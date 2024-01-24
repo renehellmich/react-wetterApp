@@ -17,7 +17,7 @@ const MainProvider = ({ children }) => {
     })
     const [data, setData] = useState([])
     const [fetch, setFetch] = useState(false)
-    const [cityfromButton, setCityFromButton] = useState("")
+    const [cityfromButton, setCity] = useState("")
 
 
     useEffect(() => {
@@ -27,13 +27,13 @@ const MainProvider = ({ children }) => {
                 const apiFetch = async (city) => {
                     const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
                     console.log("City im Fetch: ", city);
-                    try {
+                    // try {
                         const resp = await axios.get(api)
                         // console.log(resp.data);
                         setData(resp.data)
-                    } catch (error) {
-                        console.error("Error: ", error);
-                    }
+                    // } catch (error) {
+                    //     console.error("Error: ", error);
+                    // }
                 }
                 apiFetch(cityfromButton)
             }
@@ -41,7 +41,7 @@ const MainProvider = ({ children }) => {
     }, [buttons, cityfromButton])
 
     return (
-        <mainContext.Provider value={{ data, setData, buttons, setButtons }}>
+        <mainContext.Provider value={{ data, setData, buttons, setButtons, setFetch, setCity}}>
             {children}
         </mainContext.Provider>
 

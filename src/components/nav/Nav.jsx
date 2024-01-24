@@ -1,15 +1,18 @@
-import React, { useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { mainContext } from '../../context/mainProvider'
+
+export const ifData = createContext()
 
 const Nav = () => {
 
-    const {setButtons, setCityFromButton, apiFetch} = useContext(mainContext)
+    const {setButtons, apiFetch, setFetch, setCity} = useContext(mainContext)
 
     const loadWeatherData = (buttonKey, city) => {
         setButtons((button) => ({ ...button, [buttonKey]: true}));
         console.log(city);
-        setCityFromButton(city)
-        apiFetch(city)
+        setFetch(true);
+        setCity(city)
+        // apiFetch(city)
     }
 
     return (

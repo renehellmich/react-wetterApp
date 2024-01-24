@@ -11,7 +11,7 @@ const Weather = () => {
         {
             data?
             (
-                <h1></h1>
+                <h1>{data.name}</h1>
             ):
             (
                 <p>loading...</p>
