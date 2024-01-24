@@ -25,7 +25,7 @@ const MainProvider = ({ children }) => {
             if (fetch) {
 
                 const apiFetch = async (city) => {
-                    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
+                    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`
                     console.log("City im Fetch: ", city);
                     // try {
                         const resp = await axios.get(api)
